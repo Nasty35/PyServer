@@ -1,0 +1,43 @@
+﻿[PyScripter]
+Version=2.4.3.0
+
+[Project]
+ClassName=TProjectRootNode
+StoreRelativePaths=FALSE
+ShowFileExtensions=FALSE
+
+[Project\ChildNodes\Node0]
+ClassName=TProjectFilesNode
+
+[Project\ChildNodes\Node0\ChildNodes\Node0]
+ClassName=TProjectFileNode
+FileName=F:\Todo\Python Projects\Server\src\Environment.py
+
+[Project\ChildNodes\Node0\ChildNodes\Node1]
+ClassName=TProjectFileNode
+FileName=F:\Todo\Python Projects\Server\src\HandlePackets.py
+
+[Project\ChildNodes\Node0\ChildNodes\Node2]
+ClassName=TProjectFileNode
+FileName=F:\Todo\Python Projects\Server\src\Logging.py
+
+[Project\ChildNodes\Node0\ChildNodes\Node3]
+ClassName=TProjectFileNode
+FileName=F:\Todo\Python Projects\Server\src\ServerMessage.py
+
+[Project\ChildNodes\Node0\ChildNodes\Node4]
+ClassName=TProjectFileNode
+FileName=F:\Todo\Python Projects\Server\src\Sockets.py
+
+[Project\ChildNodes\Node0\ChildNodes]
+Count=5
+
+[Project\ChildNodes\Node1]
+ClassName=TProjectRunConfiguationsNode
+
+[Project\ChildNodes]
+Count=2
+
+[Project\ExtraPythonPath]
+Count=0
+
