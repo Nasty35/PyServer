@@ -1,0 +1,3 @@
+[2012-11-30 22:14:58.407000] - Iniciando servidor...
+[2012-11-30 22:14:58.439000] - Sockets correctamente iniciados en el puerto: 30000
+[2012-11-30 22:14:58.443000] - Servidor iniciando correctamente, esperando conexiones!

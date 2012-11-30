@@ -4,7 +4,6 @@
 
 #Importando librerias
 import HandlePackets
-import Logging
 import socket
 import threading
 
@@ -20,7 +19,8 @@ class Listen(threading.Thread):
             server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             server.bind(('127.0.0.1', self.port))
             server.listen(10)
-            self.log.Write("Servidor escuchando clientes en puerto: " + str(self.port))
+            self.log.Write("Sockets correctamente iniciados en el puerto: ".__add__(str(self.port)))
+            self.log.Write("Servidor iniciando correctamente, esperando conexiones!")
             while True:
                 connection = Connection(server.accept(), self.log)
                 connection.start()
@@ -28,8 +28,8 @@ class Listen(threading.Thread):
             server = None
             connection.join()
             self.join()
-        except socket.errorTab, e:
-            self.log.WriteError("Hubo un error con los sockets: " + e)
+        except socket.error, e:
+            self.log.WriteError("Hubo un error con los sockets: ".__add__(e))
 #Clase Connection
 class Connection(threading.Thread):
     def __init__(self, (sock, addr), log):
@@ -37,17 +37,16 @@ class Connection(threading.Thread):
         self.addr = addr
         self.log = log
         threading.Thread.__init__(self)
-    def SendData(self, data):
+    def sendData(self, data):
         try:
             self.sock.send(data)
-        except socket.errorTab, e:
-            self.log.WriteError("Hubo un error al intentar enviar " + data + ": " + e)
+        except socket.error, e:
+            self.log.WriteError("Hubo un error al intentar enviar ".__add__(": ").__add__(e))
     def run(self):
         self.log.Write("Nuevo cliente conectado")
         try:
             data = self.sock.recv(512)
-            self.log.Write("Packet recibido => " + str(data))
-            pack = HandlePackets.HandlePackets()
-            pack.Parse(data, self.log, self)
-        except socket.errorTab, e:
-            self.log.WriteError("Hubo un error con la conexion: " + e)
+            self.log.Write("Packet recibido => ".__add__(str(data)))
+            HandlePackets.HandlePackets().Parse(int(data), self.log, self)
+        except socket.error, e:
+            self.log.WriteError("Hubo un error con la conexion: ".__add__(e))
